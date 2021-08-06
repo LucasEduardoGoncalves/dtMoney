@@ -29,11 +29,11 @@ export const Table = styled.table`
             color: var(--text-title);
         }
 
-        &.deposite {
+        &.deposit {
             color: var(--green);
         }
 
-        &.whithdraw {
+        &.withdraw {
             color: var(--red);
         }
     }

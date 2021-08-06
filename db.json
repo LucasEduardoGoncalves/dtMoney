@@ -1,18 +1,36 @@
 {
-    "transactions": [
-      { 
-        
-          "id": "1",
-          "title": "Transaction 1",
-          "amount": "1000",
-          "type": "Deposit",
-          "category": "Food",
-          "createdAt": "new Date()"
-        
-      }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
+  "transactions": [
+    {
+      "title": "Problema em casa",
+      "amount": 790,
+      "type": "withdraw",
+      "category": "casa",
+      "createdAt": "2021-08-05T12:46:43.618Z",
+      "id": "pTqvhFf"
+    },
+    {
+      "title": "SiteDev1",
+      "amount": 1000,
+      "type": "deposit",
+      "category": "Programção",
+      "createdAt": "2021-08-05T13:15:07.186Z",
+      "id": "f-6dCNN"
+    },
+    {
+      "title": "Fogão",
+      "amount": 2000,
+      "type": "withdraw",
+      "category": "Casa",
+      "createdAt": "2021-08-05T13:17:46.054Z",
+      "id": "WHJqT-v"
+    },
+    {
+      "title": "Web site",
+      "type": "deposit",
+      "category": "Trabalho",
+      "amount": 8940,
+      "createdAt": "Thu Aug 05 2021 21:06:08 GMT-0300 (Horário Padrão de Brasília)",
+      "id": "6frKoH7"
+    }
+  ]
 }
