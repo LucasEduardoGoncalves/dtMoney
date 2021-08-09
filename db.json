@@ -15,22 +15,52 @@
       "category": "Programção",
       "createdAt": "2021-08-05T13:15:07.186Z",
       "id": "f-6dCNN"
-    },
-    {
-      "title": "Fogão",
-      "amount": 2000,
-      "type": "withdraw",
-      "category": "Casa",
-      "createdAt": "2021-08-05T13:17:46.054Z",
-      "id": "WHJqT-v"
-    },
-    {
-      "title": "Web site",
-      "type": "deposit",
-      "category": "Trabalho",
-      "amount": 8940,
-      "createdAt": "Thu Aug 05 2021 21:06:08 GMT-0300 (Horário Padrão de Brasília)",
-      "id": "6frKoH7"
     }
-  ]
+  ],
+
+  "transactionsClosed": [
+    {
+      "title": "Transação do mês de Abril",
+      "QuantidadeTransactions": "22 Transações",
+      "EndedAt": "28/04/2021",
+      "Saldo": "Positivo",
+      "ValorFinal": "R$ 15,00"
+    },
+    {
+      "title": "Transação do mês de Maio",
+      "QuantidadeTransactions": "18 Transações",
+      "EndedAt": "30/05/2021",
+      "Saldo": "Negativo",
+      "ValorFinal": "- R$ 845,00"
+    },
+    {
+      "title": "Transação do mês de Junho",
+      "QuantidadeTransactions": "4 Transações",
+      "EndedAt": "28/06/2021",
+      "Saldo": "Positivo",
+      "ValorFinal": "R$ 1.069,00"
+    },
+    {
+      "title": "Transação do mês de Julho",
+      "QuantidadeTransactions": "5 Transações",
+      "EndedAt": "29/07/2021",
+      "Saldo": "Positivo",
+      "ValorFinal": "R$ 14.256,00"
+    },
+    {
+      "title": "Transação do mês de Agosto",
+      "QuantidadeTransactions": "30 Transações",
+      "EndedAt": "30/08/2021",
+      "Saldo": "Negativo",
+      "ValorFinal": "- R$6.024,00"
+    }
+  ],
+
+  "profile":{
+      "name": "Lucas Gonçalves",
+      "email": "lucasedugoncalves123@gmail.com",
+      "senha": "luquinhac2",
+      "id": "Sbbr8WG"
+    }
+  
 }

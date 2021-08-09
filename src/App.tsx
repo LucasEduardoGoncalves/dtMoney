@@ -1,16 +1,15 @@
 import Modal from 'react-modal';
 import { TransactionProvider } from './hooks/useTransactions';
+import { AuthProvider } from './hooks/useAuth';
 
 import { Header } from './components/Header';
 import { ModalTransition } from './components/Modal';
 
-import { Dashboard } from './pages/Dashboard';
+import { Routes } from './Routes/Routes';
 
 import { GlobalStyles } from "./styles/GlobalStyles";
 
-
 import { useState } from 'react';
-
 
 Modal.setAppElement('#root');
 
@@ -26,12 +25,15 @@ export function App() {
   }
   
   return (
-    <TransactionProvider>
-      <Header onOpenModal={handleOpenModal}/>
-      <Dashboard/>
+    <AuthProvider>
+      <TransactionProvider>
+        <Header onOpenModal={handleOpenModal}/>
 
-      <ModalTransition isOpen={isOpen} handleCloseModal={handleCloseModal} />
-      <GlobalStyles/>
-    </TransactionProvider>
+        <Routes/>
+
+        <ModalTransition isOpen={isOpen} handleCloseModal={handleCloseModal} />
+        <GlobalStyles/>
+      </TransactionProvider>
+    </AuthProvider>
   );
 };
