@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileImg from '../../assets/total.svg';
 import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
+import { Header } from '../../components/Header';
 
 import { Container, InfoProfile, HistoricTransactionTitle, HistoricTransaction } from './styles';
 
@@ -23,6 +24,8 @@ export const Profile: React.FC = () => {
     },[])
 
     return (
+    <>
+        <Header />
         <Container>
             <InfoProfile>
                 <img src={ProfileImg} alt="" />
@@ -61,5 +64,6 @@ export const Profile: React.FC = () => {
                 </tbody>
             </HistoricTransaction>
         </Container>
+    </>
   );
 }

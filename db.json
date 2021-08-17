@@ -15,9 +15,16 @@
       "category": "Programção",
       "createdAt": "2021-08-05T13:15:07.186Z",
       "id": "f-6dCNN"
+    },
+    {
+      "title": "zcxzxczc",
+      "type": "deposit",
+      "category": "czxczx",
+      "amount": 234,
+      "createdAt": "Mon Aug 16 2021 17:35:41 GMT-0300 (Horário Padrão de Brasília)",
+      "id": "kUNr8fh"
     }
   ],
-
   "transactionsClosed": [
     {
       "title": "Transação do mês de Abril",
@@ -55,12 +62,10 @@
       "ValorFinal": "- R$6.024,00"
     }
   ],
-
-  "profile":{
-      "name": "Lucas Gonçalves",
-      "email": "lucasedugoncalves123@gmail.com",
-      "senha": "luquinhac2",
-      "id": "Sbbr8WG"
-    }
-  
+  "profile": {
+    "name": "Lucas Gonçalves",
+    "email": "lucasedugoncalves123@gmail.com",
+    "senha": "luquinhac2",
+    "id": "Sbbr8WG"
+  }
 }
