@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTransactions } from '../../hooks/useTransactions';
+import { useTransactions } from '../../hooks/useTransictions';
 
 import { Container, AreaSummary } from './styles';
 
@@ -11,7 +11,6 @@ import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
 import { Header } from '../../components/Header';
 import { ModalTransition } from '../../components/Modal';
-
 
 export const Dashboard: React.FC = () => {
   const { transactions } = useTransactions();

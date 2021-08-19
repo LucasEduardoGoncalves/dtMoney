@@ -33,6 +33,6 @@ export const Container = styled.div<Props>`
 
     ${props => props.total && css`
         background: var(--green);
-        color: var(--shape)
+        color: var(--shape);
     `}
 `;

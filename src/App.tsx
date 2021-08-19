@@ -1,6 +1,5 @@
 import Modal from 'react-modal';
-import { TransactionProvider } from './hooks/useTransactions';
-import { AuthProvider } from './hooks/useAuth';
+import { TransactionProvider } from './hooks/useTransictions';
 
 import { Routes } from './Routes';
 
@@ -10,11 +9,9 @@ Modal.setAppElement('#root');
 
 export function App() {
   return (
-    <AuthProvider>
-      <TransactionProvider>
-        <Routes/>     
-        <GlobalStyles/>
-      </TransactionProvider>
-    </AuthProvider>
+    <TransactionProvider>
+      <Routes/>     
+      <GlobalStyles/>
+    </TransactionProvider>
   );
 };

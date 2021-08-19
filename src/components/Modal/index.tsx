@@ -1,6 +1,5 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
-import { useTransactions } from '../../hooks/useTransactions'; 
 
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
@@ -17,32 +16,7 @@ interface Props {
 
 export const ModalTransition: React.FC<Props> = ({isOpen, handleCloseModal}) => {
 
-  const { createTransaction } = useTransactions();
-
-  const [title, setTitle] = useState('');
-  const [value, setValue] = useState(0);
   const [type, setType] = useState(''); // deposit || withdraw
-  const [category, setCategory] = useState('');
-
-
-  async function handleCreateNewTransaction(event : FormEvent) {
-    event.preventDefault();
-
-    await createTransaction({
-      title,    
-      type,
-      category,
-      amount: value,
-      createdAt: String(new Date())
-    })
-
-    setTitle('');   
-    setType('');
-    setCategory('');
-    setValue(0);
-
-    handleCloseModal();
-  }
 
   return (
     <Modal
@@ -55,20 +29,16 @@ export const ModalTransition: React.FC<Props> = ({isOpen, handleCloseModal}) => 
         <img src={closeImg} alt="CLose Modal" />
       </button>
       
-      <Container onSubmit={handleCreateNewTransaction}>
+      <Container>
           <h2>Cadastrar transação</h2>
 
           <input
             placeholder="Titulo"
-            onChange={e => setTitle(e.target.value)}
-            value={title}
           />
 
           <input
             type="number"
             placeholder="Valor"
-            onChange={e => setValue(Number(e.target.value))}
-            value={value}
           />  
 
           <TypeContainer>
@@ -95,8 +65,6 @@ export const ModalTransition: React.FC<Props> = ({isOpen, handleCloseModal}) => 
 
           <input
             placeholder="Categoria"
-            onChange={e => setCategory(e.target.value)}
-            value={category}
           />
 
           <button type="submit">
