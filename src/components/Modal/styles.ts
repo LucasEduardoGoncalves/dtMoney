@@ -17,12 +17,9 @@ export const Container = styled.form`
 
     input {
         width: 100%;
-        padding: 0 1.5rem;
-        height: 4rem;
-        border-radius: 0.25rem;
-
-        border: 1px solid #d7d7d7;
-        background: #e7e9ee;
+        background: transparent;
+        border: 0;
+        outline: none;
 
         font-weight: 400;
         font-size: 1rem;
@@ -30,13 +27,13 @@ export const Container = styled.form`
         &::placeholder {
             color: var(--text)
         }
-
-        & + input {
-            margin-top: 0.5rem;
-        }
     }
 
     button[type="submit"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
         width: 100%;
         padding: 0 1.5rem;
         height: 4rem;
@@ -52,6 +49,30 @@ export const Container = styled.form`
         &:hover {
             filter: brightness(0.9);
         }
+    }
+`;
+
+export const Input = styled.div`
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding: 0 1.5rem;
+    height: 4rem;
+    border-radius: 0.25rem;
+
+    border: 1px solid #d7d7d7;
+    background: #e7e9ee;
+
+    font-weight: 400;
+    font-size: 1rem;
+
+    &::placeholder {
+        color: var(--text)
+    }
+
+    & + div {
+        margin-top: 0.5rem;
     }
 `;
 

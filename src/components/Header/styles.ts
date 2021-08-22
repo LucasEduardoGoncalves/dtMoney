@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const ContainerHeader = styled.header`
     background: var(--purple);
 `;
@@ -31,5 +30,9 @@ export const Button = styled.button`
 
     &:hover {
         filter: brightness(0.9);
+    }
+
+    & + button {
+        margin-left: 1rem;
     }
 `;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTransactions } from '../../hooks/useTransictions';
 
 import { Container, AreaSummary } from './styles';
 
@@ -11,27 +10,16 @@ import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
 import { Header } from '../../components/Header';
 import { ModalTransition } from '../../components/Modal';
+import { useAuth } from '../../hooks/auth';
+import { useHistory } from 'react-router-dom';
 
 export const Dashboard: React.FC = () => {
-  const { transactions } = useTransactions();
 
-  const summary = transactions.reduce((acc, transaction) => {
-    if (transaction.type === 'deposit'){
-      acc.deposits += transaction.amount;
-      acc.total += transaction.amount;
-    } else {
-      acc.withdraws += transaction.amount;
-      acc.total -= transaction.amount;
-    }
+  const { user } = useAuth();
 
-    return acc;
+  const history = useHistory();
 
-    },{
-      deposits: 0,
-      withdraws: 0,
-      total: 0 
-    }
-  )
+  if(!user) {history.push('/')}
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -42,7 +30,6 @@ export const Dashboard: React.FC = () => {
   function handleCloseModal() {
     setIsOpen(false);
   }
-  
 
   return (
     <>
@@ -58,7 +45,7 @@ export const Dashboard: React.FC = () => {
                   {
                     style: 'currency',
                     currency: 'BRL',
-                  }).format(summary.deposits)}
+                  }).format(0)}
             />
 
             <Summary 
@@ -69,7 +56,7 @@ export const Dashboard: React.FC = () => {
                   {
                     style: 'currency',
                     currency: 'BRL',
-                  }).format(summary.withdraws)
+                  }).format(0)
                 }
             />
 
@@ -81,7 +68,7 @@ export const Dashboard: React.FC = () => {
                   {
                     style: 'currency',
                     currency: 'BRL',
-                  }).format(summary.total)} 
+                  }).format(0)} 
               total
             />   
           </AreaSummary> 

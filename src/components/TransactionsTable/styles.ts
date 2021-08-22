@@ -17,24 +17,65 @@ export const Table = styled.table`
         line-height: 1.5rem;
     }
 
+    tr {
+        .button {
+            button{
+                opacity: 0;
+            }
+        }
+
+        &:hover {
+            .button {
+                button {
+                    opacity: 1;
+                }   
+            }
+
+            td {
+                border-bottom: 1px solid var(--purple);
+            }
+        }
+    }
+
     td {
         padding: 1rem 2rem;
         border: 0;
+        border-bottom: 1px solid var(--shape);
 
         background: var(--shape);
-        border-radius: 0.25rem;
+        /* border-radius: 0.25rem; */
         color: var(--text);
 
         &:first-child{
             color: var(--text-title);
         }
 
-        &.deposite {
+        &.deposit {
             color: var(--green);
         }
 
-        &.whithdraw {
+        &.withdraw {
             color: var(--red);
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border: 0;
+            background: transparent;
+
+            svg {
+                color: var(--red);
+                font-size: 1.5rem;
+
+                transition: filter 0.2s;
+                
+                &:hover {
+                    filter: brightness(0.8);
+                }
+            }
         }
     }
 `;
