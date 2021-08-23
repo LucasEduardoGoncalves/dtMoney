@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     margin-top: 4rem;
+    height: 100%;
+    overflow: auto;
 `;
 
 export const Table = styled.table`
