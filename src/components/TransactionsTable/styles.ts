@@ -43,7 +43,6 @@ export const Table = styled.table`
         border-bottom: 1px solid var(--shape);
 
         background: var(--shape);
-        /* border-radius: 0.25rem; */
         color: var(--text);
 
         &:first-child{
@@ -79,4 +78,3 @@ export const Table = styled.table`
         }
     }
 `;
-

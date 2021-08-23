@@ -1,7 +1,7 @@
 import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import logoImg from '../../assets/logo.svg';
-import { useAuth } from '../../hooks/auth';
 
 import { ContainerHeader, Content, Button } from './styles';
 interface Props {
@@ -10,7 +10,8 @@ interface Props {
 
 export const Header: React.FC<Props> = ({onOpenModal}) => {
 
-  const { signOut } = useAuth();
+  const history = useHistory();
+  const location = useLocation();
 
   return (
       <ContainerHeader>
@@ -19,12 +20,21 @@ export const Header: React.FC<Props> = ({onOpenModal}) => {
 
       
             <div>
-              <Button type="button" onClick={onOpenModal}>
-                  Nova Transação
-              </Button>    
-              <Button type="button" onClick={signOut}>
-                SignOut
-              </Button>  
+              {location.pathname !== '/profile' && 
+                <Button type="button" onClick={onOpenModal}>
+                    Nova Transação
+                </Button> 
+              }
+                 
+              {location.pathname === '/profile' ? 
+                <Button type="button" onClick={() => history.push('/home')}>
+                  Home
+                </Button>  
+              :
+                <Button type="button" onClick={() => history.push('/profile')}>
+                  Profile
+                </Button>  
+              }            
             </div>          
           </Content>      
     </ContainerHeader>

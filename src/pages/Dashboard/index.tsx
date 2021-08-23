@@ -12,12 +12,27 @@ import { Header } from '../../components/Header';
 import { ModalTransition } from '../../components/Modal';
 import { useAuth } from '../../hooks/auth';
 import { useHistory } from 'react-router-dom';
+import { useCollection } from '@nandorojo/swr-firestore';
+
+interface DataProps {
+  category: string,
+  data: {
+      seconds: number, 
+      nanoseconds: number
+  }
+  id: string,
+  title: string,
+  type: string,
+  value: string,
+}
 
 export const Dashboard: React.FC = () => {
 
   const { user } = useAuth();
 
   const history = useHistory();
+
+  const { data } = useCollection<DataProps>(user ? user.id : 'users', {listen: true}); 
 
   if(!user) {history.push('/')}
 
@@ -31,12 +46,30 @@ export const Dashboard: React.FC = () => {
     setIsOpen(false);
   }
 
+  const summary = data?.reduce((acc, transaction) => {
+    if (transaction.type === 'deposit'){
+      acc.deposits += Number(transaction.value);
+      acc.total += Number(transaction.value);
+    } else {
+      acc.withdraws += Number(transaction.value);
+      acc.total -= Number(transaction.value);
+    }
+    return acc;
+    },{
+      deposits: 0,
+      withdraws: 0,
+      total: 0 
+    }
+  )
+
   return (
     <>
       <Header onOpenModal={handleOpenModal}/>
       <ModalTransition isOpen={isOpen} handleCloseModal={handleCloseModal} />
       <Container>    
           <AreaSummary>
+          {summary &&
+          <>
             <Summary 
               title="Entradas" 
               img={incomeImg} 
@@ -45,7 +78,7 @@ export const Dashboard: React.FC = () => {
                   {
                     style: 'currency',
                     currency: 'BRL',
-                  }).format(0)}
+                  }).format(summary.deposits)}
             />
 
             <Summary 
@@ -56,7 +89,7 @@ export const Dashboard: React.FC = () => {
                   {
                     style: 'currency',
                     currency: 'BRL',
-                  }).format(0)
+                  }).format(summary.withdraws)
                 }
             />
 
@@ -68,9 +101,11 @@ export const Dashboard: React.FC = () => {
                   {
                     style: 'currency',
                     currency: 'BRL',
-                  }).format(0)} 
+                  }).format(summary.total)} 
               total
             />   
+          </>
+          }
           </AreaSummary> 
           <TransactionsTable />
       </Container>

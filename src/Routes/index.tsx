@@ -5,6 +5,7 @@ import { AuthContextProvider } from '../hooks/auth';
 
 import { Dashboard } from '../pages/Dashboard';
 import { SignIn } from '../pages/SignIn';
+import { Profile } from '../pages/Profile';
 
 export const Routes: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const Routes: React.FC = () => {
         <Switch>
           <Route path="/" component={SignIn} exact/>
           <Route path="/home" component={Dashboard}/>
+          <Route path="/profile" component={Profile}/>
         </Switch>
       </AuthContextProvider>     
     </BrowserRouter>

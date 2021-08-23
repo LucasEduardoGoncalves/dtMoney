@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useForm, SubmitHandler } from "react-hook-form";
+import { FiAlertCircle } from 'react-icons/fi'
 
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
@@ -9,14 +10,13 @@ import closeImg from '../../assets/close.svg';
 import { Tooltip } from '../Tooltip';
 import { LoadingIcon } from '../LoadingIcon';
 
-import { FiAlertCircle } from 'react-icons/fi'
-
-import { Container, TypeContainer, RadioBox, Input } from './styles';
 import { firestore } from '../../services/firebase';
 import { useAuth } from '../../hooks/auth';
+
+import { Container, TypeContainer, RadioBox, Input } from './styles';
 interface Props {
-    isOpen: boolean;
-    handleCloseModal: () => void;
+  isOpen: boolean;
+  handleCloseModal: () => void;
 }
 
 type Inputs = {

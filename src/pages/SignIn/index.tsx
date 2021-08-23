@@ -14,6 +14,8 @@ export const SignIn: React.FC = () => {
 
   const history = useHistory();
 
+  if(user){history.push('/home')}
+
   async function loginGoogle() {
     if(!user){
       await signInWithGoogle();

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Container, Table } from './styles';
-
+import { format } from 'date-fns'
 import { useCollection } from '@nandorojo/swr-firestore'
-import { firestore } from '../../services/firebase';
-
 import { AiFillDelete } from 'react-icons/ai';
+
+import { firestore } from '../../services/firebase';
 import { useAuth } from '../../hooks/auth';
 
+import { Container, Table } from './styles';
 interface DataProps {
     category: string,
     data: {
@@ -59,7 +59,7 @@ export const TransactionsTable: React.FC = () => {
                                     }).format(Number(list.value))}
                             </td>
                             <td>{list.category}</td>
-                            <td>--</td>
+                            <td>{format(new Date(Number(list.data.seconds * 1e3)), "MM/dd/yyyy")}</td>
                             <td className='button'>
                                 <button onClick={() => deleteDoc(list.id)}><AiFillDelete /></button>
                             </td>
